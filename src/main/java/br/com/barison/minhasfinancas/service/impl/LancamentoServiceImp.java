@@ -3,6 +3,7 @@ package br.com.barison.minhasfinancas.service.impl;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -94,6 +95,12 @@ public class LancamentoServiceImp implements LancamentoService{
 			throw new RegraNegocioException("Informe um Tipo de Lançamento.");
 		}
 		
+	}
+
+	@Override
+	public Optional<Lancamento> obterLancamentoPorId(Long id) {
+		
+		return repository.findById(id);
 	}
 
 }
